@@ -1,7 +1,6 @@
 # nn-zth-exercises
 Exercises from Andrej Karpathy nn-zero-to-hero 
 
-
 Repository with lecture materials: [karpathy/nn-zero-to-hero](https://github.com/karpathy/nn-zero-to-hero)
 
 # Lectures 
@@ -10,28 +9,28 @@ Repository with lecture materials: [karpathy/nn-zero-to-hero](https://github.com
 
 
 Exercises:
- - [x] Section 1. Derivatives.
- - [x] Section 2. Support for softmax.
+ - [&check;] Section 1. Derivatives.
+ - [&check;] Section 2. Support for softmax.
 
 ## Lecture 2
 [The spelled-out intro to language modeling: building makemore](https://www.youtube.com/watch?v=PaCmpygFfXo&list=PLAqhIrjkxbuWI23v9cThsA9GvCAUhRvKZ&index=2)
 
 
 Exercises:
-- [x] Exercise 1. Trigram model.
-- [x] Exercise 2. Split into train/dev/test sets.
-- [x] Exercise 3. Regularization.
-- [x] Exercise 4. Get rid of one-hot vectors.
-- [x] Exercise 5. Use cross entropy instead.
+- [&check;] Exercise 1. Trigram model.
+- [&check;] Exercise 2. Split into train/dev/test sets.
+- [&check;] Exercise 3. Regularization.
+- [&check;] Exercise 4. Get rid of one-hot vectors.
+- [&check;] Exercise 5. Use cross entropy instead.
 
 ## Lecture 3
 [Building makemore Part 2: MLP](https://www.youtube.com/watch?v=TCH_1BHY58I&list=PLAqhIrjkxbuWI23v9cThsA9GvCAUhRvKZ&index=3)
 
 
 Exercises:
-- [x] Exercise 1. Tune hyperparameters.
-- [x] Exercise 2. Proper initialization.
-- [x] Exercise 3. Implement any feature from paper Bengio(2003) [A NEURAL PROBABILISTIC LANGUAGE MODEL](https://www.jmlr.org/papers/volume3/bengio03a/bengio03a.pdf)
+- [&check;] Exercise 1. Tune hyperparameters.
+- [&check;] Exercise 2. Proper initialization.
+- [&check;] Exercise 3. Implement any feature from paper Bengio(2003) [A NEURAL PROBABILISTIC LANGUAGE MODEL](https://www.jmlr.org/papers/volume3/bengio03a/bengio03a.pdf)
 
 ## Lecture 4
 [Building makemore Part 3: Activations & Gradients, BatchNorm](https://www.youtube.com/watch?v=P6sfmUTpUmc&list=PLAqhIrjkxbuWI23v9cThsA9GvCAUhRvKZ&index=4)
