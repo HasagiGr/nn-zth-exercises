@@ -1,5 +1,8 @@
 # nn-zth-exercises
-Exercises from Andrej Karpathy nn-zero-to-hero
+Exercises from Andrej Karpathy nn-zero-to-hero 
+
+
+Repository with lecture materials: [karpathy/nn-zero-to-hero](https://github.com/karpathy/nn-zero-to-hero)
 
 # Lectures 
 ## Lecture 1 
