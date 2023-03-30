@@ -36,8 +36,8 @@ Exercises:
 [Building makemore Part 3: Activations & Gradients, BatchNorm](https://www.youtube.com/watch?v=P6sfmUTpUmc&list=PLAqhIrjkxbuWI23v9cThsA9GvCAUhRvKZ&index=4)
 
 Exercises:
-- [ ] Exercise 1. Initializing weights and biases to zero.
-- [ ] Exercise 2. BatchNorm usage.
+- [&check;] Exercise 1. Initializing weights and biases to zero.
+- [&check;] Exercise 2. BatchNorm usage.
 
 ## Lecture 5
 [Building makemore Part 4: Becoming a Backprop Ninja](https://www.youtube.com/watch?v=q8SA3rM6ckI&list=PLAqhIrjkxbuWI23v9cThsA9GvCAUhRvKZ&index=5)
