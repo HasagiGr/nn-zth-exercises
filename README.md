@@ -1,65 +1,82 @@
-# data-science-small-researches
+# nn-zth-exercises
 
-Реализации классических алгоритмов машинного обучения с нуля на NumPy и два прикладных проекта на открытых данных. Учебный репозиторий: цель — не собрать модель из готовых компонентов, а написать её изнутри и понять, из чего она состоит.
+Решения упражнений к курсу Andrej Karpathy [«Neural Networks: Zero to Hero»](https://github.com/karpathy/nn-zero-to-hero) — нейросети, собранные с нуля: от автоматического дифференцирования до языковых моделей.
 
 ![Python](https://img.shields.io/badge/python-3.9-blue)
-![Jupyter](https://img.shields.io/badge/jupyter-notebook-orange)
+![PyTorch](https://img.shields.io/badge/PyTorch-EE4C2C?logo=pytorch&logoColor=white)
 
 ## Содержание
 
-- [Что внутри](#что-внутри)
-- [Алгоритмы с нуля](#алгоритмы-с-нуля)
-- [Прикладные проекты](#прикладные-проекты)
+- [Зачем это](#зачем-это)
+- [Структура](#структура)
+- [Прогресс по лекциям](#прогресс-по-лекциям)
 - [Запуск](#запуск)
-- [Стек](#стек)
 - [Источники и лицензия](#источники-и-лицензия)
 
-## Что внутри
+## Зачем это
 
-| Каталог | Содержание |
-|---|---|
-| [`Yandex_ML4.0/`](Yandex_ML4.0) | Девять заданий курса Yandex ML Training: базовые алгоритмы, реализованные на NumPy без готовых решений |
-| [`projects/`](projects) | Два самостоятельных проекта полного цикла — от разведочного анализа до интерпретации модели |
+Курс разбирает нейросети снизу вверх: сначала пишется собственный движок автоградиента, потом на нём — языковые модели, и только затем появляется PyTorch. Смысл упражнений в том, чтобы ни один слой не оставался чёрным ящиком: backprop считается руками, инициализация весов выводится, а не берётся по умолчанию, батчнорм собирается из формулы.
 
-## Алгоритмы с нуля
+Здесь лежат мои решения упражнений, а не конспект лекций.
 
-В каждом задании ноутбук с исследованием и отдельный модуль с реализацией. Модуль — это и есть результат: код в нём написан вручную, sklearn используется только как эталон для сверки.
+## Структура
 
-| Задание | Что реализовано | Модуль |
+Один каталог на лекцию: ноутбук с решением и короткий `readme.md` с условиями упражнений.
+
+| Каталог | Тема | Ноутбук |
 |---|---|---|
-| 01 · k ближайших соседей | Класс `KNearestNeighbor`: обучение, предсказание и три способа посчитать матрицу расстояний — на двух циклах, на одном и полностью векторизованно | [`k_nearest_neighbor.py`](Yandex_ML4.0/assignment01_knn/k_nearest_neighbor.py) |
-| 02 · Распределение Лапласа | Класс `LaplaceDistribution`: оценка параметров через медиану и среднее абсолютное отклонение, `pdf` и `logpdf` | [`distribution.py`](Yandex_ML4.0/assignment02_laplace/distribution.py) |
-| 03 · Функции потерь и производные | `LossAndDerivatives`: MSE, MAE, L1- и L2-регуляризация и аналитические производные каждой из них | [`derivatives.py`](Yandex_ML4.0/assignment03_derivatives/derivatives.py) |
-| 04 · Степенной метод | Поиск наибольшего собственного значения и соответствующего собственного вектора итерациями | [`power_iteration.py`](Yandex_ML4.0/assignment04_power_iteration/power_iteration.py) |
-| 05 · Бэггинг и OOB | `SimplifiedBaggingRegressor`: бутстрэп-выборки, усреднение предсказаний и out-of-bag оценка качества без отложенной выборки | [`bagging.py`](Yandex_ML4.0/assignment05_bagging_and_oob/bagging.py) |
-| 06 · Градиентный бустинг | `SimplifiedBoostingRegressor`: последовательное обучение деревьев на антиградиенте функции потерь | [`boosting.py`](Yandex_ML4.0/assignment06_boosting/boosting.py) |
-| 07 · Классификация MNIST | Классификация рукописных цифр | ноутбук |
-| 08 · Важность признаков | Оценка важности признаков на данных о продажах автомобилей | ноутбук |
-| 09 · Итоговое задание | Финальная работа курса | ноутбук |
+| [`exercise-1/`](exercise-1) | micrograd: автоматическое дифференцирование, обратное распространение с нуля | [`ex_01.micrograd_exercises.ipynb`](exercise-1/ex_01.micrograd_exercises.ipynb) |
+| [`exercise-2/`](exercise-2) | makemore: посимвольная языковая модель, биграммы и триграммы | [`ex_02.character-level-language-model.ipynb`](exercise-2/ex_02.character-level-language-model.ipynb) |
+| [`exercise-3/`](exercise-3) | makemore part 2: многослойный перцептрон, эмбеддинги символов | [`ex_03.MLP.ipynb`](exercise-3/ex_03.MLP.ipynb) |
+| [`exercise-4/`](exercise-4) | makemore part 3: функции активации, градиенты, батч-нормализация | [`ex_04.activation-and-gradients-and-batchnorm.ipynb`](exercise-4/ex_04.activation-and-gradients-and-batchnorm.ipynb) |
 
-## Прикладные проекты
+## Прогресс по лекциям
 
-### Project 1 — «Титаник»: точка входа в анализ данных
+**Лекция 1** — [The spelled-out intro to neural networks and backpropagation: building micrograd](https://www.youtube.com/watch?v=VMj-3S1tku0)
 
-Бинарная классификация: выжил ли пассажир. Задача учебная и намеренно простая — интерес в том, чтобы пройти полный цикл целиком, а не в метрике.
+- [x] Производные
+- [x] Поддержка softmax
 
-Что отработано: загрузка данных с Kaggle, первичный осмотр и заполнение пропусков, графики для поиска зависимостей, подготовка признаков, модели sklearn, кросс-валидация и матрица ошибок, подбор гиперпараметров, интерпретация модели через SHAP.
+**Лекция 2** — [The spelled-out intro to language modeling: building makemore](https://www.youtube.com/watch?v=PaCmpygFfXo)
 
-Данные: [Titanic — Machine Learning from Disaster](https://www.kaggle.com/competitions/titanic/data).
+- [x] Триграммная модель
+- [x] Разбиение на train / dev / test
+- [x] Регуляризация
+- [x] Отказ от one-hot векторов
+- [x] Перекрёстная энтропия вместо ручной функции потерь
 
-### Project 2 — отчисление или успех студента
+**Лекция 3** — [Building makemore Part 2: MLP](https://www.youtube.com/watch?v=TCH_1BHY58I)
 
-Мультиклассовая классификация: студент бросит учёбу, успешно завершит её или останется на том же курсе.
+- [x] Подбор гиперпараметров
+- [x] Корректная инициализация весов
+- [x] Реализация одной из идей статьи [Bengio et al., 2003](https://www.jmlr.org/papers/volume3/bengio03a/bengio03a.pdf)
 
-Что отработано: сводные таблицы, снижение размерности через PCA, отбор значимых признаков, выбор моделей под характер данных, несколько способов смешивания моделей.
+**Лекция 4** — [Building makemore Part 3: Activations & Gradients, BatchNorm](https://www.youtube.com/watch?v=P6sfmUTpUmc)
 
-Данные: [Predict students' dropout and academic success](https://www.kaggle.com/datasets/thedevastator/higher-education-predictors-of-student-retention).
+- [x] Инициализация весов и смещений нулями
+- [x] Батч-нормализация
+
+**Лекция 5** — [Building makemore Part 4: Becoming a Backprop Ninja](https://www.youtube.com/watch?v=q8SA3rM6ckI)
+
+- [ ] Обратное распространение через всю сеть вручную
+- [ ] Backprop через cross entropy одним выражением
+- [ ] Backprop через batchnorm одним выражением
+- [ ] Сборка всего вместе
+
+**Лекция 6** — [Building makemore Part 5: Building a WaveNet](https://www.youtube.com/watch?v=t3YJ5hKiMQ0) — упражнений нет
+
+**Лекция 7** — [Let's build GPT: from scratch, in code, spelled out](https://www.youtube.com/watch?v=kCc8FmEb1nY)
+
+- [ ] Объединить `Head` и `MultiHeadAttention` в один класс
+- [ ] Обучить GPT на собственном датасете
+- [ ] Предобучение на большом корпусе
+- [ ] Реализовать одну дополнительную идею из статьи о трансформерах
 
 ## Запуск
 
 ```bash
-git clone https://github.com/HasagiGr/data-science-small-researches.git
-cd data-science-small-researches
+git clone https://github.com/HasagiGr/nn-zth-exercises.git
+cd nn-zth-exercises
 
 python -m venv .venv
 source .venv/bin/activate        # Windows: .venv\Scripts\activate
@@ -68,12 +85,9 @@ pip install -r requirements.txt
 jupyter notebook
 ```
 
-Ноутбуки заданий также открываются в Colab — ссылка есть в `README.md` внутри каждого каталога задания.
+Ноутбуки рассчитаны на CPU: модели небольшие, GPU не требуется.
 
-## Стек
+## Источники
 
-Python 3.9, NumPy, pandas, scikit-learn, Matplotlib, SHAP, Jupyter.
+Лекции и постановки упражнений — [karpathy/nn-zero-to-hero](https://github.com/karpathy/nn-zero-to-hero). В этом репозитории лежат только мои решения.
 
-## Источники и лицензия
-
-Задания в `Yandex_ML4.0/` — шаблоны курса [girafe-ai/ml-course](https://github.com/girafe-ai/ml-course) (поток Yandex ML Training). Формулировки задач и заготовки принадлежат авторам курса; в этом репозитории лежат мои решения.
